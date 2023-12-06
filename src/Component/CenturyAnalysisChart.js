@@ -1,7 +1,15 @@
 // CricketStatsChart.js
-import React from 'react';
-import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
-import playerStatsData from '../playerStatsData '; // Adjust the path based on your file structure
+import React from "react";
+import {
+  ResponsiveContainer,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+} from "recharts";
+import playerStatsData from "../playerStatsData "; // Adjust the path based on your file structure
 
 const CenturyAnalysisChart = () => {
   // Filtering centuries scored by Kohli
@@ -33,18 +41,29 @@ const CenturyAnalysisChart = () => {
 
   return (
     <div className="w-full h-[45vh]">
-
-<h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-3xl font-bold mb-2 sm:mt-8 md:mb-4 lg:mb-4 xl:mb-4">Centuries Scored by Virat Kohli</h2>
+      <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-3xl font-bold mb-2 sm:mt-8 md:mb-4 lg:mb-4 xl:mb-4">
+        Centuries Scored by Virat Kohli
+      </h2>
       <ResponsiveContainer width="100%" height="100%">
-        <BarChart data={chartData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+        <BarChart
+          data={chartData}
+          margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+        >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="year" />
           <YAxis />
           <Tooltip />
-      
-          {Object.keys(groupedData[Object.keys(groupedData)[0]]).map((opponent, index) => (
-            <Bar key={index} dataKey={opponent} stackId="a" fill={`rgba(75,192,192,${0.2 + index * 0.2})`} />
-          ))}
+
+          {Object.keys(groupedData[Object.keys(groupedData)[0]]).map(
+            (opponent, index) => (
+              <Bar
+                key={index}
+                dataKey={opponent}
+                stackId="a"
+                fill={`rgba(75,192,192,${0.2 + index * 0.2})`}
+              />
+            )
+          )}
         </BarChart>
       </ResponsiveContainer>
     </div>
